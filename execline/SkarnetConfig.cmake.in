@@ -1,0 +1,24 @@
+# - Try to find the Skarnet xml processing library
+# Once done this will define
+#
+#  SKARNET_FOUND - System has Skarnet
+#  SKARNET_INCLUDE_DIRS - The Skarnet include directory
+#  SKARNET_LIBRARY_DIRS - The libraries needed to use Skarnet
+#  SKARNET_DEFINITIONS - Compiler switches required for using Skarnet
+#  SKARNET_XMLLINT_EXECUTABLE - The XML checking tool xmllint coming with Skarnet
+#  SKARNET_VERSION_STRING - the version of Skarnet found (since CMake 2.8.8)
+
+# use pkg-config to get the directories and then use these values
+# in the FIND_PATH() and FIND_LIBRARY() calls
+
+get_filename_component(_skarnet_install_prefix "@CONTRIBS_INSTALL_DIR@" ABSOLUTE)
+
+SET(SKARNET_FOUND ON)
+SET(SKARNET_VERSION_STRING @VERSION_STRING@)
+SET(SKARNET_DEFINITIONS)
+SET(SKARNET_INCLUDE_DIRS ${_skarnet_install_prefix}/include)
+SET(SKARNET_LIBRARY_DIRS ${_skarnet_install_prefix}/lib/skarnet)
+
+message(STATUS "Skarnet headers dir: " ${SKARNET_INCLUDE_DIRS})
+message(STATUS "Skarnet libs dir: " ${SKARNET_LIBRARY_DIRS})
+
