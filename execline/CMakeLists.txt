@@ -68,7 +68,4 @@ install(DIRECTORY ${EXECLINE_OUTPUT_DIR}/etc
     USE_SOURCE_PERMISSIONS
     )
 
-configure_file(SkarnetConfig.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/SkarnetConfig.cmake @ONLY)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/SkarnetConfig.cmake DESTINATION ${CONTRIBS_INSTALL_DIR}/lib/cmake )
-
 include(package.cmake)
