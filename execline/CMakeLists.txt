@@ -11,7 +11,7 @@ include(project_ver.cmake)
 include(ExternalProject)
 
 # download dirname
-set(3RD_DL_DIR ${CMAKE_BINARY_DIR}/.support)
+set(3RD_DL_DIR ${CMAKE_BINARY_DIR}/../.support)
 
 # execline dirnames
 set(SKA_PKG_DIR ${CMAKE_CURRENT_BINARY_DIR}/package)
@@ -38,7 +38,7 @@ ExternalProject_Add(${PROJECT_NAME}
         echo "${SKARNET_STAGING_DIR}/skalibs/library/skarnet"       > ${EXECLINE_CONF_COMPILE}/path-library && 
         echo "${SKARNET_STAGING_DIR}/skalibs/library.so/skarnet"    > ${EXECLINE_CONF_COMPILE}/path-library.so && 
         echo "${SKA_PKG_DIR}"                               > ${EXECLINE_CONF_COMPILE}/conf-sp_root &&
-        echo "${EXECLINE_OUTPUT_DIR}/bin"                   > ${EXECLINE_CONF_COMPILE}/conf-install-command && 
+        echo "${EXECLINE_OUTPUT_DIR}/command"               > ${EXECLINE_CONF_COMPILE}/conf-install-command && 
         echo "${EXECLINE_OUTPUT_DIR}/library/skarnet"       > ${EXECLINE_CONF_COMPILE}/conf-install-library &&
         echo "${EXECLINE_OUTPUT_DIR}/library.so/skarnet"    > ${EXECLINE_CONF_COMPILE}/conf-install-library.so &&
         echo "${EXECLINE_OUTPUT_DIR}/include/skarnet"       > ${EXECLINE_CONF_COMPILE}/conf-install-include &&
@@ -67,5 +67,13 @@ install(DIRECTORY ${EXECLINE_OUTPUT_DIR}/etc
     DESTINATION /
     USE_SOURCE_PERMISSIONS
     )
+
+
+install(DIRECTORY ${EXECLINE_OUTPUT_DIR}/command
+    DESTINATION ${CONTRIBS_INSTALL_DIR}
+    USE_SOURCE_PERMISSIONS
+    FILES_MATCHING PATTERN "*"
+    )
+
 
 include(package.cmake)

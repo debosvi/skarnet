@@ -13,7 +13,7 @@ include(project_ver.cmake)
 include(ExternalProject)
 
 # download dirname
-set(3RD_DL_DIR ${CMAKE_BINARY_DIR}/.support)
+set(3RD_DL_DIR ${CMAKE_BINARY_DIR}/../.support)
 
 # skalibs dirnames
 set(SKA_PKG_DIR ${CMAKE_CURRENT_BINARY_DIR}/package)
