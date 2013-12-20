@@ -12,7 +12,7 @@ SET(CPACK_PACKAGING_INSTALL_PREFIX "/tmp")
 SET(CPACK_GENERATOR "TGZ;DEB")
 
 SET(CPACK_PACKAGE_DESCRIPTION "Skalibs software")
-SET(CPACK_PACKAGE_DESCRIPTION_SUMMARY "skalibs is a package centralizing the free software / open source C development files used for building all software at skarnet.org." ) 
+SET(CPACK_PACKAGE_DESCRIPTION_SUMMARY "A set of general-purpose C programming libraries. You need this first: all the other software in this list depends on it." ) 
 SET(CPACK_PACKAGE_VENDOR "Aquaplouf Land")
 SET(CPACK_PACKAGE_CONTACT "Vincent de RIBOU <belzo2005-dolphin@yahoo.fr>")
 SET(CPACK_PACKAGE_VERSION_MAJOR "${MAJOR_VERSION}")

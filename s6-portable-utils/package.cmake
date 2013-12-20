@@ -12,7 +12,7 @@ SET(CPACK_PACKAGING_INSTALL_PREFIX "/tmp")
 SET(CPACK_GENERATOR "TGZ;DEB")
 
 SET(CPACK_PACKAGE_DESCRIPTION "s6 portable utils software")
-SET(CPACK_PACKAGE_DESCRIPTION_SUMMARY "s6-portable-utils is a set of tiny general Unix utilities, often performing well-known tasks such as cut and grep, but optimized for simplicity and small size." ) 
+SET(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Tiny portable generic utilities." ) 
 SET(CPACK_PACKAGE_VENDOR "Aquaplouf Land")
 SET(CPACK_PACKAGE_CONTACT "Vincent de RIBOU <belzo2005-dolphin@yahoo.fr>")
 SET(CPACK_PACKAGE_VERSION_MAJOR "${MAJOR_VERSION}")

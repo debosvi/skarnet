@@ -3,7 +3,7 @@ SHELL=/bin/bash
 PWD=$(shell pwd)
 ROOT_BUILD=$(PWD)/build
 
-TARGETS:=skalibs execline s6-portable-utils s6-linux-utils
+TARGETS:=skalibs execline s6-portable-utils s6-linux-utils s6-dns s6
 
 define build-pkg
 	@echo -e "\e[0;33mStart building $(1), ...\e[0m"
