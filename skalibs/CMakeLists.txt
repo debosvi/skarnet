@@ -36,6 +36,7 @@ ExternalProject_Add(${PROJECT_NAME}
     BUILD_IN_SOURCE     0
     CONFIGURE_COMMAND  
         echo "${SKA_PKG_DIR}"                           > ${SKALIBS_CONF_COMPILE}/conf-sp_root &&
+#        echo ""                                         > ${SKALIBS_CONF_COMPILE}/flag-allstatic &&
         echo "${SKALIBS_OUTPUT_DIR}/bin"                > ${SKALIBS_CONF_COMPILE}/conf-install-command && 
         echo "${SKALIBS_OUTPUT_DIR}/library/skarnet"    > ${SKALIBS_CONF_COMPILE}/conf-install-library &&
         echo "${SKALIBS_OUTPUT_DIR}/library.so/skarnet" > ${SKALIBS_CONF_COMPILE}/conf-install-library.so &&
