@@ -3,11 +3,12 @@ SHELL=/bin/bash
 PWD=$(shell pwd)
 ROOT_BUILD=$(PWD)/build
 
-TARGETS:=skalibs execline s6-portable-utils s6-linux-utils s6-dns s6
+TARGETS:=skalibs execline s6-portable-utils s6-linux-utils s6-dns s6 s6-networking
 
 define build-pkg
 	@echo -e "\e[0;33mStart building $(1), ...\e[0m"
 	make build-$(1)
+	@echo $(1)_pkg_done >> $(ROOT_BUILD)/.done
 	@echo -e "\e[0;33mStop building $(1)\e[0m"
 endef
 
@@ -41,9 +42,15 @@ clean-%:
 	@rm -fv $(ROOT_BUILD)/$(subst clean-,,$@)*{deb,tar.gz} 
 	@cd $(ROOT_BUILD)/$(subst clean-,,$@) && make clean        
 
+execline: skalibs
+s6-dns: execline
+s6: execline
+s6-portable-utils: skalibs
+s6-linux-utils: skalibs
+s6-networking: execline s6-dns
+
 .PHONY: $(TARGETS)
 $(TARGETS):
 	$(call build-pkg,$@)
-
 
 	
