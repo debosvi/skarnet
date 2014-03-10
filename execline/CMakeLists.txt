@@ -34,6 +34,7 @@ ExternalProject_Add(${PROJECT_NAME}
     BUILD_IN_SOURCE     0
     CONFIGURE_COMMAND  
         echo "${SKARNET_SYSDEPS_DIR}"                               > ${EXECLINE_CONF_COMPILE}/import && 
+        echo ""                                                     > ${EXECLINE_CONF_COMPILE}/flag-allstatic &&
         echo "${SKARNET_STAGING_DIR}/skalibs/include/skarnet"       > ${EXECLINE_CONF_COMPILE}/path-include && 
         echo "${SKARNET_STAGING_DIR}/skalibs/library/skarnet"       > ${EXECLINE_CONF_COMPILE}/path-library && 
         echo "${SKARNET_STAGING_DIR}/skalibs/library.so/skarnet"    > ${EXECLINE_CONF_COMPILE}/path-library.so && 
