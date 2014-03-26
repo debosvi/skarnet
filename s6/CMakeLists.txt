@@ -29,7 +29,7 @@ ExternalProject_Add(${PROJECT_NAME}
     STAMP_DIR           ${CMAKE_BINARY_DIR}/.stamps
     DOWNLOAD_DIR        ${3RD_DL_DIR}
     URL                 http://www.skarnet.org/software/s6/s6-${VERSION_STRING}.tar.gz
-    URL_MD5             a4fc19506284c79851d6de4a35275c07
+    URL_MD5             487844ca652e78e5ae3a530c246d1cd1
     SOURCE_DIR          "${SKA_PKG_DIR}/prog"
     BUILD_IN_SOURCE     0
     CONFIGURE_COMMAND  
@@ -72,7 +72,7 @@ install(DIRECTORY ${S6_OUTPUT_DIR}/etc
     )
 
 install(DIRECTORY ${S6_OUTPUT_DIR}/command
-    DESTINATION ${CONTRIBS_INSTALL_DIR}
+    DESTINATION /
     USE_SOURCE_PERMISSIONS
     FILES_MATCHING PATTERN "*"
     )

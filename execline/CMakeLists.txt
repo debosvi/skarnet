@@ -29,7 +29,7 @@ ExternalProject_Add(${PROJECT_NAME}
     STAMP_DIR           ${CMAKE_BINARY_DIR}/.stamps
     DOWNLOAD_DIR        ${3RD_DL_DIR}
     URL                 http://www.skarnet.org/software/execline/execline-${VERSION_STRING}.tar.gz
-    URL_MD5             6e100987c13014055c2c07430a0a16b5
+    URL_MD5             c40f95bd7d9ea8d0dce2a57e813d5056
     SOURCE_DIR          "${SKA_PKG_DIR}/prog"
     BUILD_IN_SOURCE     0
     CONFIGURE_COMMAND  
@@ -71,7 +71,7 @@ install(DIRECTORY ${EXECLINE_OUTPUT_DIR}/etc
 
 
 install(DIRECTORY ${EXECLINE_OUTPUT_DIR}/command
-    DESTINATION ${CONTRIBS_INSTALL_DIR}
+    DESTINATION /
     USE_SOURCE_PERMISSIONS
     FILES_MATCHING PATTERN "*"
     )
