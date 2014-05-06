@@ -31,7 +31,7 @@ ExternalProject_Add(${PROJECT_NAME}
     STAMP_DIR           ${CMAKE_BINARY_DIR}/.stamps
     DOWNLOAD_DIR        ${3RD_DL_DIR}
     URL                 http://www.skarnet.org/software/skalibs/${SKALIBS_PACKAGE}.tar.gz
-    URL_MD5             872f01e16aea008b783f50b532fa00e6
+    URL_MD5             1000d8d02ced5bb9c12efca5a8304830
     SOURCE_DIR          "${SKA_PKG_DIR}/prog"
     BUILD_IN_SOURCE     0
     CONFIGURE_COMMAND  

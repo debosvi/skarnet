@@ -29,7 +29,7 @@ ExternalProject_Add(${PROJECT_NAME}
     STAMP_DIR           ${CMAKE_BINARY_DIR}/.stamps
     DOWNLOAD_DIR        ${3RD_DL_DIR}
     URL                 http://www.skarnet.org/software/s6-portable-utils/s6-portable-utils-${VERSION_STRING}.tar.gz
-    URL_MD5             a903236bc6972785eb371644f74aeebd
+    URL_MD5             f5ce5e9a37a321d12c7e16e91b1a7eeb
     SOURCE_DIR          "${SKA_PKG_DIR}/prog"
     BUILD_IN_SOURCE     0
     CONFIGURE_COMMAND  
