@@ -76,6 +76,12 @@ install(DIRECTORY ${S6_OUTPUT_DIR}/command
     USE_SOURCE_PERMISSIONS
     FILES_MATCHING PATTERN "*"
     )
-
+	
+set(NEW_FILE ${CMAKE_CURRENT_BINARY_DIR}/boz_service)
+configure_file(boz_service.in ${NEW_FILE} @ONLY)
+install(FILES ${NEW_FILE}
+    DESTINATION /usr/bin
+    PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
+    )
 
 include(package.cmake)

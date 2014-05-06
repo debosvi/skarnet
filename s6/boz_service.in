@@ -1,0 +1,78 @@
+#! /bin/sh
+# Author: Vincent de RIBOU <belzo2005-dolphin@yahoo.fr>
+
+# Do NOT "set -e"
+SCAN_DIR=/tmp/s6-service
+SCAN_READY_DIR=/tmp/s6-services
+SERVICES_DIR=/usr/share/boz/s6-services
+FACTORY_CONFIG_DIR=/usr/share/boz
+CONFIG_DIR=/opt/boz/configs
+
+# PATH should only include /usr/* if it runs after the mountnfs.sh script
+PATH=:/command:/sbin:/usr/sbin:/bin:/usr/bin
+NAME=bni_service
+SVC_BIN=/command/s6-svc
+SCRIPTNAME=`basename $0`
+
+# Load the VERBOSE setting and other rcS variables
+. /lib/init/vars.sh
+
+# Define LSB log_* functions.
+# Depend on lsb-base (>= 3.2-14) to ensure that this file is present
+# and status_of_proc is working.
+. /lib/lsb/init-functions
+
+# Exit if the package is not installed
+[ -x "$SVC_BIN" ] || exit 0
+
+# Read configuration variable file if it is present
+[ -r /etc/default/$NAME ] && . /etc/default/$NAME
+
+print_usage() {
+    if [ "$1" != "" ]; then
+        echo $1;
+    fi
+    echo "Usage: $SCRIPTNAME {reload|down|up|term|kill|force-stop}" >&2
+    exit 3
+}
+
+apply_cmd() {
+    log_daemon_msg "Send $1 signal to" "$3"
+    $SVC_BIN $2 $SCAN_DIR/$3
+    case "$?" in
+        0|1) log_end_msg 0 ;;
+        111|100) log_end_msg 1 ;;
+    esac
+}
+
+# Check number of arguments
+[ $# -ne 2 ] && print_usage
+
+# Check number of arguments
+[ ! -d "$SCAN_DIR/$2" ] && print_usage "Service $2 not found!!"
+
+case "$1" in
+    reload)
+        apply_cmd "HUP" "-h" $2
+        ;;
+    down)
+        apply_cmd "down" "-d" $2
+        ;;
+    up)
+        apply_cmd "up" "-u" $2
+        ;;
+    term)
+        apply_cmd "TERM" "-t" $2
+        ;;
+    kill)
+        apply_cmd "QUIT" "-q" $2
+        ;;
+    force-stop)
+        apply_cmd "KILL" "-k" $2
+        ;;
+    *)
+        print_usage;
+        ;;
+esac
+
+:
