@@ -29,7 +29,7 @@ ExternalProject_Add(${PROJECT_NAME}
     STAMP_DIR           ${CMAKE_BINARY_DIR}/.stamps
     DOWNLOAD_DIR        ${3RD_DL_DIR}
     URL                 http://www.skarnet.org/software/s6-networking/s6-networking-${VERSION_STRING}.tar.gz
-    URL_MD5             886054393319a5421581baec27da6dc3
+    URL_MD5             779d74f975c9365076ef768c33b68a68
     SOURCE_DIR          "${SKA_PKG_DIR}/prog"
     BUILD_IN_SOURCE     0
     CONFIGURE_COMMAND  
