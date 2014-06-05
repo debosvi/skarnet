@@ -29,7 +29,7 @@ ExternalProject_Add(${PROJECT_NAME}
     STAMP_DIR           ${CMAKE_BINARY_DIR}/.stamps
     DOWNLOAD_DIR        ${3RD_DL_DIR}
     URL                 http://www.skarnet.org/software/s6-portable-utils/s6-portable-utils-${VERSION_STRING}.tar.gz
-    URL_MD5             f5ce5e9a37a321d12c7e16e91b1a7eeb
+    URL_MD5             571e17f74e4dad00510b3cee8fe2c9ee
     SOURCE_DIR          "${SKA_PKG_DIR}/prog"
     BUILD_IN_SOURCE     0
     CONFIGURE_COMMAND  
@@ -39,6 +39,7 @@ ExternalProject_Add(${PROJECT_NAME}
         echo "${SKARNET_STAGING_DIR}/skalibs/library.so/skarnet"    > ${S6PORTABLE_UTILS_CONF_COMPILE}/path-library.so && 
         echo "${SKA_PKG_DIR}"                                       > ${S6PORTABLE_UTILS_CONF_COMPILE}/conf-sp_root &&
         echo "${S6PORTABLE_UTILS_OUTPUT_DIR}/command"               > ${S6PORTABLE_UTILS_CONF_COMPILE}/conf-install-command && 
+        echo "${S6PORTABLE_UTILS_OUTPUT_DIR}/libexec"               > ${S6PORTABLE_UTILS_CONF_COMPILE}/conf-install-libexec && 
         echo "${S6PORTABLE_UTILS_OUTPUT_DIR}/library/skarnet"       > ${S6PORTABLE_UTILS_CONF_COMPILE}/conf-install-library &&
         echo "${S6PORTABLE_UTILS_OUTPUT_DIR}/library.so/skarnet"    > ${S6PORTABLE_UTILS_CONF_COMPILE}/conf-install-library.so &&
         echo "${S6PORTABLE_UTILS_OUTPUT_DIR}/include/skarnet"       > ${S6PORTABLE_UTILS_CONF_COMPILE}/conf-install-include &&
@@ -47,6 +48,7 @@ ExternalProject_Add(${PROJECT_NAME}
         rm -f ${S6PORTABLE_UTILS_CONF_COMPILE}/flag-slashpackage
     BUILD_COMMAND
         mkdir -p ${S6PORTABLE_UTILS_OUTPUT_DIR}/etc &&
+        mkdir -p ${S6PORTABLE_UTILS_OUTPUT_DIR}/libexec &&
         make -C ${SKA_PKG_DIR}/prog/${S6PORTABLE_UTILS_PACKAGE} 
     INSTALL_COMMAND make -C ${SKA_PKG_DIR}/prog/${S6PORTABLE_UTILS_PACKAGE} install
     )
